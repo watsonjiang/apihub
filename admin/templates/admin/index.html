@@ -1,0 +1,15 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+
+{% block more_head %}
+
+<link rel="stylesheet" href="{% static 'admin/resources/css/app.css' %}">
+<script type="text/javascript" src="{% static 'admin/translations/locale.js' %}" ></script>
+<script type = "text/javascript" src = "{% static 'admin/app.js' %}" > </script>
+{% endblock %}
+{% block content %}
+<script>
+    console.log('-----index.html');
+</script>
+<div id="output"></div>
+{% endblock %}
