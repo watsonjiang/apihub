@@ -24,11 +24,10 @@ Ext.define('ApiHub.controller.Login', {
             "login form textfield[name=password]": {
                 keypress: this.onTextfielKeyPress
             },
-            /*
             "appheader button#logout": {
                 click: this.onButtonClickLogout
             }
-            */
+
         });
         /*
         Ext.apply(Ext.form.field.VTypes, {
@@ -70,7 +69,11 @@ Ext.define('ApiHub.controller.Login', {
                     //ApiHub.util.Alert.msg('Success!', 'User Authenticated.');
 
                     login.close();
-                    //Ext.create('ApiHub.view.AppViewport');
+
+                    //reload group&user store
+                    Ext.getStore('group').reload();
+                    //Ext.getStore('user').reload();
+
                     Ext.widget('appviewport');
                     //ApiHub.util.SessionMonitor.start();
 
@@ -119,19 +122,11 @@ Ext.define('ApiHub.controller.Login', {
     onButtonClickLogout: function(button, e, options) {
 
         Ext.Ajax.request({
-            url: 'http://localhost/masteringextjs/php/logout.php',
+            url: 'logout',
+            method: 'POST',
             success: function(conn, response, options, eOpts){
-
-                var result = ApiHub.util.Util.decodeJSON(conn.responseText);
-
-                if (result.success) {
-
-                    button.up('mainviewport').destroy();
-                    window.location.reload();
-                } else {
-
-                    ApiHub.util.Util.showErrorMsg(result.msg);
-                }
+                button.up('appviewport').destroy();
+                window.location.reload();
             },
             failure: function(conn, response, options, eOpts) {
 

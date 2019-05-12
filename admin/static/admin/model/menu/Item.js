@@ -12,10 +12,10 @@ Ext.define('ApiHub.model.menu.Item', {
             name: 'text'
         },
         {
-            name: 'icon_cls'
+            name: 'iconCls'
         },
         {
-            name: 'class_name'
+            name: 'className'
         },
         {
             name: 'id'

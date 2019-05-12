@@ -9,6 +9,8 @@ Ext.application({
         'Login',
         'TranslationManager',
         'Menu',
+        'security.Group',
+        'security.User'
     ],
     init: function() {
         Ext.get

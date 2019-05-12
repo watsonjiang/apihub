@@ -15,6 +15,7 @@ class UserProfile(models.Model):
     password = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     picture = models.CharField(max_length=100, null=True)
+    #目前一个用户只归属一个组
     group = models.ForeignKey('Group', on_delete=models.CASCADE)
 
 class Group(models.Model):

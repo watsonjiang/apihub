@@ -12,7 +12,7 @@ Ext.define('ApiHub.model.menu.Root', {
             name: 'text'
         },
         {
-            name: 'icon_cls'
+            name: 'iconCls'
         },
         {
             name: 'id'

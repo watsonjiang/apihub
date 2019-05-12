@@ -9,7 +9,7 @@ translations = {
 
 	capsLockTitle: '大写锁定键开启中',
 	capsLockMsg1: '',
-	capsLockMsg2: 'incorrectly.',
+	capsLockMsg2: '不正确.',
 	capsLockMsg3: 'You should press Caps Lock to turn it off before entering',
 	capsLockMsg4: 'your password.',
 

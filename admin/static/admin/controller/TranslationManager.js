@@ -24,7 +24,7 @@ Ext.define('ApiHub.controller.TranslationManager', {
     },
 
     onSplitbuttonBeforeRender: function(abstractcomponent, options) {
-        var lang = localStorage ? (localStorage.getItem('user-lang') || 'zh_CN') : 'zh_CN';
+        var lang = localStorage ? (localStorage.getItem('user-lang') || 'en') : 'en';
         abstractcomponent.iconCls = lang;
 
         if (lang == 'en'){

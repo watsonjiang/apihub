@@ -1,9 +1,9 @@
 Ext.define('ApiHub.controller.Menu', {
     extend: 'Ext.app.Controller',
-
-/*    requires: [
+    /*
+    requires: [
         'ApiHub.view.security.Profile',
-        'ApiHub.view.security.GroupPermissions'
+        'ApiHub.view.security.GroupPermission'
     ],*/
 
     models: [
@@ -29,9 +29,7 @@ Ext.define('ApiHub.controller.Menu', {
         this.getMenuStore().load(function(records, op, success){
 
             var menuPanel = Ext.ComponentQuery.query('mainmenu')[0];
-
             Ext.each(records, function(root){
-
                 var menu = Ext.create('ApiHub.view.menu.Item',{
                     title: translations[root.get('text')],
                     iconCls: root.get('iconCls')
@@ -40,7 +38,6 @@ Ext.define('ApiHub.controller.Menu', {
                 Ext.each(root.items(), function(itens){
 
                     Ext.each(itens.data.items, function(item){
-
                         menu.getRootNode().appendChild({
                             text: translations[item.get('text')],
                             leaf: true,
@@ -57,7 +54,6 @@ Ext.define('ApiHub.controller.Menu', {
     },
 
     onTreepanelSelect: function(selModel, record, index, options) {
-        //console.log(record.raw.className);
 
         var mainPanel = this.getMainPanel();
 
@@ -65,8 +61,6 @@ Ext.define('ApiHub.controller.Menu', {
         function (tab){
             return tab.title === record.get('text');
         });
-
-        //console.log(record.raw.className);
 
         if (!newTab){
             newTab = mainPanel.add({
@@ -90,7 +84,6 @@ Ext.define('ApiHub.controller.Menu', {
                 render: this.onPanelRender
             },
             "mainmenuitem": {
-                //select: this.onTreepanelSelect,
                 itemclick: this.onTreepanelItemClick
             }
         });
